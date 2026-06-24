@@ -17,9 +17,6 @@ export default function Hero() {
         <h1 className="max-w-3xl text-4xl font-bold leading-[1.1] tracking-tight sm:text-6xl">
           {profile.name}
         </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-          {profile.bio}
-        </p>
         <div className="mt-8 flex flex-wrap gap-4">
           <Link
             href="#projects"

@@ -10,10 +10,10 @@ const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
 export const metadata: Metadata = {
   metadataBase: new URL("https://anikethbuddolla.vercel.app"),
   title: `${profile.name} — ${profile.title}`,
-  description: profile.bio,
+  description: profile.about,
   openGraph: {
     title: `${profile.name} — ${profile.title}`,
-    description: profile.bio,
+    description: profile.about,
     type: "website",
   },
 };

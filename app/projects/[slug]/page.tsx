@@ -108,49 +108,62 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           )}
         </div>
 
-        {project.screenshots.length > 0 && (
-          <div className="mt-12">
-            <ScreenshotGallery screenshots={project.screenshots} />
+        {project.inProgress ? (
+          <div className="mt-12 rounded-xl border border-dashed border-slate-300 p-8 text-center dark:border-slate-700">
+            <p className="font-mono text-sm text-slate-500 dark:text-slate-400">
+              🚧 This project is currently in progress. A full write-up, tech
+              stack, and screenshots are coming soon.
+            </p>
           </div>
+        ) : (
+          <>
+            {project.screenshots.length > 0 && (
+              <div className="mt-12">
+                <ScreenshotGallery screenshots={project.screenshots} />
+              </div>
+            )}
+
+            <div className="mt-12 space-y-10">
+              <Field label="Context">
+                <p className="leading-relaxed">{project.context}</p>
+              </Field>
+
+              <Field label="My role">
+                <p className="leading-relaxed">{project.role}</p>
+              </Field>
+
+              <Field label="Approach">
+                <ul className="space-y-2">
+                  {project.approach.map((point, i) => (
+                    <li key={i} className="flex gap-3 leading-relaxed">
+                      <span className="select-none font-mono text-accent">
+                        →
+                      </span>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Field>
+
+              <Field label="Stack">
+                <ul className="flex flex-wrap gap-2">
+                  {project.tech.map((tech) => (
+                    <li
+                      key={tech}
+                      className="rounded-full bg-slate-100 px-3 py-1 font-mono text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-300"
+                    >
+                      {tech}
+                    </li>
+                  ))}
+                </ul>
+              </Field>
+
+              <Field label="Outcome">
+                <p className="leading-relaxed">{project.outcome}</p>
+              </Field>
+            </div>
+          </>
         )}
-
-        <div className="mt-12 space-y-10">
-          <Field label="Context">
-            <p className="leading-relaxed">{project.context}</p>
-          </Field>
-
-          <Field label="My role">
-            <p className="leading-relaxed">{project.role}</p>
-          </Field>
-
-          <Field label="Approach">
-            <ul className="space-y-2">
-              {project.approach.map((point, i) => (
-                <li key={i} className="flex gap-3 leading-relaxed">
-                  <span className="select-none font-mono text-accent">→</span>
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
-          </Field>
-
-          <Field label="Stack">
-            <ul className="flex flex-wrap gap-2">
-              {project.tech.map((tech) => (
-                <li
-                  key={tech}
-                  className="rounded-full bg-slate-100 px-3 py-1 font-mono text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-300"
-                >
-                  {tech}
-                </li>
-              ))}
-            </ul>
-          </Field>
-
-          <Field label="Outcome">
-            <p className="leading-relaxed">{project.outcome}</p>
-          </Field>
-        </div>
 
         <nav className="mt-16 flex justify-between gap-4 border-t border-slate-200 pt-6 font-mono text-sm dark:border-slate-800">
           {prev ? (

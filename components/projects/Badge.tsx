@@ -16,6 +16,14 @@ export function TypeBadge({ type }: { type: Project["type"] }) {
 }
 
 export function StatusBadge({ project }: { project: Project }) {
+  if (project.inProgress) {
+    return (
+      <span className="inline-flex items-center gap-1.5 rounded-md bg-sky-500/10 px-2 py-0.5 font-mono text-xs font-medium text-sky-800 dark:text-sky-300">
+        <span className="h-1.5 w-1.5 rounded-full bg-sky-500" />
+        in progress
+      </span>
+    );
+  }
   if (project.liveUrl) {
     return (
       <span className="inline-flex items-center gap-1.5 rounded-md bg-emerald-500/10 px-2 py-0.5 font-mono text-xs font-medium text-emerald-800 dark:text-emerald-300">
