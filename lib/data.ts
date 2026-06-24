@@ -182,6 +182,16 @@ export const experience: ExperienceItem[] = [
       "Debugged spatial join logic in sf and leaflet to correctly assign police incident and parcel records to neighborhood, ZIP code, and school campus geographies.",
     ],
   },
+  {
+    company: "Code2College",
+    role: "Student Developer",
+    period: "2023 — Present",
+    bullets: [
+      "Selected for a competitive technical internship-preparation program.",
+      "Built complete Python applications — a Wordle clone, a chatbot, and a SQL-backed banking app — using OOP and data structures.",
+      "Built front-ends with React and Svelte, including an e-commerce storefront and a NASA Mars Rover photo browser that consumes a public API.",
+    ],
+  },
 ];
 
 export type EducationItem = {
@@ -193,18 +203,68 @@ export type EducationItem = {
 
 export const education: EducationItem[] = [
   {
-    school: "Westside High School",
+    school: "Westside High School — Houston, TX",
     credential: "High School Diploma",
-    period: "Expected 2026",
-    details: "Houston, Texas. Add honors, relevant coursework, or activities.",
+    period: "Graduation 2027",
+    details: "GPA 4.83 / 3.9 (weighted / unweighted) · Class Rank 5 of 611",
   },
 ];
 
-// PLACEHOLDER — list certifications, or empty this array to hide the section.
-export const certifications: string[] = [
-  "Add a certification — or remove this list.",
+export type LeadershipItem = {
+  org: string;
+  role: string;
+  period: string;
+  detail?: string;
+};
+
+export const leadership: LeadershipItem[] = [
+  {
+    org: "Student Council",
+    role: "President (prev. Freshman VP, Club Liaison, Historian)",
+    period: "2023 — Present",
+    detail:
+      "Led student initiatives and events; helped reopen the school library serving 3,000+ students.",
+  },
+  {
+    org: "FRC Robotics",
+    role: "Member",
+    period: "2023 — Present",
+    detail: "Designed robot components with CAD and Java; 2× State Finalist.",
+  },
+  {
+    org: "Orchestra",
+    role: "Varsity Violinist",
+    period: "2017 — Present",
+    detail: "Earned UIL Sweepstakes awards.",
+  },
+  {
+    org: "Track & Field",
+    role: "Varsity",
+    period: "2024 — Present",
+  },
+  {
+    org: "National Wildlife Federation — Earth Tomorrow Houston",
+    role: "Member",
+    period: "2023 — Present",
+  },
+  {
+    org: "KidsVikas Houston ALT",
+    role: "Volunteer",
+    period: "2024 — Present",
+  },
 ];
 
-// PLACEHOLDER — a one- or two-line résumé summary.
-export const resumeSummary =
-  "One- or two-line résumé summary — who you are and what you do best.";
+export type Award = {
+  name: string;
+  year?: string;
+};
+
+export const awards: Award[] = [
+  { name: "Python Level 1 Certified — CodeHS", year: "2024" },
+  { name: "National Honor Society (NHS)", year: "2025" },
+  { name: "UIL Orchestra Sweepstakes", year: "2025" },
+  { name: "IT Specialist — Java (certification)", year: "2026" },
+  { name: "Student Council President", year: "2026" },
+];
+
+export const spokenLanguages = ["English", "Telugu"];
