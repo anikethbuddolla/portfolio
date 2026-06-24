@@ -159,16 +159,27 @@ export type ExperienceItem = {
   bullets: string[];
 };
 
-// PLACEHOLDER — replace with your real roles and accomplishments.
 export const experience: ExperienceItem[] = [
   {
-    company: "CPAL",
-    role: "Student Developer",
-    period: "20XX — Present",
-    location: "Houston, TX",
+    company: "Child Poverty Action Lab",
+    role: "Software Engineer Intern",
+    period: "2026",
+    location: "Dallas, TX",
     bullets: [
-      "Replace with a specific thing you built or owned — ideally with a measurable result.",
-      "Add another concrete accomplishment (a system you shipped, a problem you solved, the impact).",
+      "Built an interactive web display that maps 14 Dallas neighborhoods to analog clocks, using Census data to score each community's opportunity, with live weather and time-of-day lighting effects.",
+      'Created a personal "About Me" web page using Adobe\'s professional design system, learning to build a clean, accessible, mobile-friendly page within an enterprise UI framework.',
+      "Built a practice app for musicians that plays a metronome, tracks daily practice streaks, and generates its own click and tuning sounds from scratch.",
+    ],
+  },
+  {
+    company: "Child Poverty Action Lab",
+    role: "Full Stack Intern",
+    period: "2025",
+    location: "Dallas, TX",
+    bullets: [
+      "Developed front-end components using JavaScript and R and collaborated using GitHub workflows.",
+      "Built and debugged React components (map tooltips, data cards, filter drawers) for an interactive neighborhood safety dashboard using Next.js.",
+      "Debugged spatial join logic in sf and leaflet to correctly assign police incident and parcel records to neighborhood, ZIP code, and school campus geographies.",
     ],
   },
 ];
