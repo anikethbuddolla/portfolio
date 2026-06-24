@@ -80,13 +80,41 @@ export default function ScreenshotGallery({
             type="button"
             onClick={close}
             aria-label="Close"
-            className="absolute right-4 top-4 rounded-md p-2 font-mono text-sm text-white/70 hover:text-white"
+            className="absolute right-3 top-3 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-2xl text-white/80 transition-colors hover:bg-white/20 hover:text-white"
           >
-            esc ✕
+            ✕
           </button>
+
+          {screenshots.length > 1 && (
+            <>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  prev();
+                }}
+                aria-label="Previous screenshot"
+                className="absolute left-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-2xl text-white/80 transition-colors hover:bg-white/20 hover:text-white sm:left-4"
+              >
+                ‹
+              </button>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  next();
+                }}
+                aria-label="Next screenshot"
+                className="absolute right-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-2xl text-white/80 transition-colors hover:bg-white/20 hover:text-white sm:right-4"
+              >
+                ›
+              </button>
+            </>
+          )}
+
           <figure
             onClick={(e) => e.stopPropagation()}
-            className="max-h-full w-full max-w-5xl"
+            className="flex max-h-full w-full max-w-5xl flex-col items-center"
           >
             <Image
               src={screenshots[open].src}
@@ -94,13 +122,13 @@ export default function ScreenshotGallery({
               width={1600}
               height={1000}
               unoptimized={screenshots[open].src.endsWith(".svg")}
-              className="h-auto w-full rounded-lg"
+              className="h-auto max-h-[78vh] w-auto max-w-full rounded-lg object-contain"
             />
-            <figcaption className="mt-3 text-center font-mono text-sm text-white/60">
+            <figcaption className="mt-3 px-10 text-center text-sm text-white/60">
               {screenshots[open].alt}
               {screenshots.length > 1 && (
-                <span className="ml-2">
-                  ({open + 1}/{screenshots.length} · ← → to browse)
+                <span className="ml-2 whitespace-nowrap">
+                  ({open + 1}/{screenshots.length})
                 </span>
               )}
             </figcaption>

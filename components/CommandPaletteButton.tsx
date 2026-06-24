@@ -5,11 +5,24 @@ export default function CommandPaletteButton() {
     <button
       type="button"
       onClick={() => window.dispatchEvent(new Event("command-palette:open"))}
-      aria-label="Open command palette"
-      className="inline-flex items-center gap-2 rounded-md border border-slate-300 px-2.5 py-1.5 font-mono text-xs text-slate-500 transition-colors hover:border-accent hover:text-accent dark:border-slate-700 dark:text-slate-400"
+      aria-label="Open search"
+      className="inline-flex h-9 items-center gap-2 rounded-md border border-slate-300 px-2.5 text-xs text-slate-500 transition-colors hover:border-accent hover:text-accent dark:border-slate-700 dark:text-slate-400"
     >
-      <span className="hidden sm:inline">Search</span>
-      <kbd className="rounded border border-slate-300 px-1 dark:border-slate-600">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="h-4 w-4"
+        aria-hidden
+      >
+        <circle cx="11" cy="11" r="7" />
+        <path d="m21 21-4.3-4.3" />
+      </svg>
+      <span className="hidden font-mono sm:inline">Search</span>
+      <kbd className="hidden rounded border border-slate-300 px-1 font-mono dark:border-slate-600 sm:inline">
         ⌘K
       </kbd>
     </button>

@@ -105,14 +105,18 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
           ))}
         </div>
         <span className="ml-auto font-mono text-xs text-slate-400">
-          {visible.length} {visible.length === 1 ? "project" : "projects"} · press{" "}
-          <kbd className="rounded border border-slate-300 px-1 dark:border-slate-700">
-            j
-          </kbd>{" "}
-          <kbd className="rounded border border-slate-300 px-1 dark:border-slate-700">
-            k
-          </kbd>{" "}
-          to navigate
+          {visible.length} {visible.length === 1 ? "project" : "projects"}
+          <span className="hidden md:inline">
+            {" "}
+            · press{" "}
+            <kbd className="rounded border border-slate-300 px-1 dark:border-slate-700">
+              j
+            </kbd>{" "}
+            <kbd className="rounded border border-slate-300 px-1 dark:border-slate-700">
+              k
+            </kbd>{" "}
+            to navigate
+          </span>
         </span>
       </div>
 

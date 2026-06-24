@@ -7,11 +7,9 @@
   --foreground: #0f172a;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0b1120;
-    --foreground: #e2e8f0;
-  }
+.dark {
+  --background: #0b1120;
+  --foreground: #e2e8f0;
 }
 
 html {
@@ -22,9 +20,25 @@ body {
   color: var(--foreground);
   background: var(--background);
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 /* Offset anchor scroll for the sticky nav */
 section[id] {
   scroll-margin-top: 5rem;
+}
+
+/* Respect iPhone safe areas (notch / Dynamic Island), esp. in landscape */
+@supports (padding: max(0px)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* Avoid iOS auto-zoom on focus: inputs must be >=16px */
+input,
+textarea,
+select {
+  font-size: 16px;
 }

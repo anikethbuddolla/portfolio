@@ -4,7 +4,7 @@ export const profile = {
   bio: "I build fast, accessible web applications with a focus on clean architecture and great user experience. Currently turning ideas into production software at CPAL.",
   about:
     "I'm a software engineer who enjoys working across the stack — from designing intuitive interfaces to building reliable backend systems. I care about writing maintainable code, shipping thoughtfully, and continuously learning. Outside of work, I like exploring new tools, contributing to side projects, and staying curious about how things are built.",
-  email: "aniketh@cpal.org",
+  email: "aniketh.buddolla@gmail.com",
   github: "https://github.com/anikethbuddolla",
   linkedin: "https://www.linkedin.com/in/anikethbuddolla",
 };
@@ -54,9 +54,9 @@ export const projects: Project[] = [
     type: "personal",
     year: "2026",
     oneLiner:
-      "A fast, keyboard-driven portfolio with a command palette and a terminal-inspired aesthetic.",
+      "A fast, accessible portfolio with detailed project case studies and a command palette.",
     context:
-      "I needed a single, credible home for my work that loads instantly, is trivial to update, and feels at home for a technical audience.",
+      "I needed a single, credible home for my work that loads instantly and is trivial to update.",
     role: "Sole designer and developer — from information architecture to deployment.",
     approach: [
       "Built on the Next.js App Router with fully static rendering for instant loads and zero hosting cost on Vercel.",
