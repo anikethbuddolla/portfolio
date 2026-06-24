@@ -128,9 +128,11 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                 <p className="leading-relaxed">{project.context}</p>
               </Field>
 
-              <Field label="My role">
-                <p className="leading-relaxed">{project.role}</p>
-              </Field>
+              {project.role && (
+                <Field label="My role">
+                  <p className="leading-relaxed">{project.role}</p>
+                </Field>
+              )}
 
               <Field label="Approach">
                 <ul className="space-y-2">

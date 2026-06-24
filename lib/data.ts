@@ -25,8 +25,8 @@ export type Project = {
   oneLiner: string;
   /** The problem / why it existed */
   context: string;
-  /** What YOU specifically did */
-  role: string;
+  /** What YOU specifically did (optional — omit for solo projects) */
+  role?: string;
   /** Key technical decisions and tradeoffs (one bullet each) */
   approach: string[];
   tech: string[];
@@ -45,6 +45,46 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    slug: "design-system-lab",
+    title: "Design System Lab",
+    type: "work",
+    year: "2026",
+    oneLiner:
+      'A personal "About Me" site built entirely from Adobe\'s Spectrum design system during a Code2College internship at CPAL.',
+    context:
+      "Built as a hands-on project in the Code2College internship at Child Poverty Action Lab (CPAL): learn a professional design system (Adobe Spectrum) by using it to tell a personal story.",
+    approach: [
+      "Composed the whole page from Adobe Spectrum components — cards, badges, progress bars, dividers — instead of custom CSS, to learn the system's constraints.",
+      "Added vanilla-JavaScript interactivity with no framework: a typing animation, a light/dark theme toggle, and an interactive music player.",
+      "Used IntersectionObserver for scroll-triggered animations and wrote semantic, accessible HTML (ARIA roles, proper heading hierarchy).",
+    ],
+    tech: ["HTML", "CSS", "JavaScript", "Adobe Spectrum"],
+    outcome:
+      "A polished single-page site (~4,000 lines) plus a written reflection on designing within a design system's constraints.",
+    screenshots: [],
+    liveUrl: "/demos/design-system-lab/index.html",
+  },
+  {
+    slug: "practice-studio",
+    title: "Practice Studio",
+    type: "work",
+    year: "2026",
+    oneLiner:
+      "A terminal-based metronome and practice logger for musicians, built for violin practice.",
+    context:
+      "I wanted a focused practice tool that runs right in the terminal — a metronome, intonation drones, a session timer, and a streak log to stay accountable.",
+    approach: [
+      "Built the terminal UI with React 19 and OpenTUI on the Bun runtime, in TypeScript.",
+      "Wrote a synthesized audio engine that generates WAV click tracks and seamless intonation drones, with a graceful terminal-bell fallback.",
+      "Added a tempo trainer that auto-accelerates the metronome, plus persistent session logging with a consecutive-day streak counter.",
+    ],
+    tech: ["TypeScript", "Bun", "React", "OpenTUI"],
+    outcome:
+      "A complete, polished CLI tool (~1,500 lines) with tap-tempo, scale and drone references, and auto-seasonal themes.",
+    screenshots: [],
+    repoUrl: "https://github.com/anikethbuddolla/practice-studio",
+  },
   {
     slug: "environmental-impact-tracker",
     title: "Environmental Impact Tracker",
