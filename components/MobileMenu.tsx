@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 const links = [
-  { href: "/#projects", label: "Projects" },
-  { href: "/#skills", label: "Skills" },
+  { href: "/", label: "Home" },
   { href: "/#about", label: "About" },
+  { href: "/#experience", label: "Experience" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/#resume", label: "Resume" },
   { href: "/#contact", label: "Contact" },
 ];
 
@@ -22,7 +24,7 @@ export default function MobileMenu() {
   }, []);
 
   return (
-    <div className="sm:hidden">
+    <div className="md:hidden">
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}

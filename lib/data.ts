@@ -1,9 +1,9 @@
 export const profile = {
   name: "Aniketh Buddolla",
-  title: "Full-Stack Software Engineer",
-  bio: "I build fast, accessible web applications with a focus on clean architecture and great user experience. Currently turning ideas into production software at CPAL.",
+  title: "Full-Stack & AI Engineer",
+  bio: "Full-stack software engineer who ships fast, accessible web apps in TypeScript and Next.js — and builds the AI agents and tooling around them. I work hands-on with the Claude API, Claude Code, and MCP to design and ship custom agents, and I'm currently building production software at CPAL.",
   about:
-    "I'm a software engineer who enjoys working across the stack — from designing intuitive interfaces to building reliable backend systems. I care about writing maintainable code, shipping thoughtfully, and continuously learning. Outside of work, I like exploring new tools, contributing to side projects, and staying curious about how things are built.",
+    "I work across the stack, from interface to deployment, and I care most about shipping software that's correct, fast, and maintainable. A growing share of my work is applied AI — building agents and developer tooling with the Claude API, Claude Code, and the Model Context Protocol, and figuring out where automation genuinely helps versus where it just adds noise. I'm happiest turning a vague problem into a small, well-built system that solves it.",
   email: "aniketh.buddolla@gmail.com",
   github: "https://github.com/anikethbuddolla",
   linkedin: "https://www.linkedin.com/in/anikethbuddolla",
@@ -33,6 +33,7 @@ export type Project = {
   tech: string[];
   /** Result — ideally with a number */
   outcome: string;
+  /** Add anonymized raster images (png/jpg) to /public/projects/ and list them here */
   screenshots: Screenshot[];
   /** Personal projects only */
   liveUrl?: string;
@@ -54,24 +55,19 @@ export const projects: Project[] = [
     type: "personal",
     year: "2026",
     oneLiner:
-      "A fast, accessible portfolio with detailed project case studies and a command palette.",
+      "A fast, accessible portfolio built agentically with Claude Code — with detailed case studies and a command palette.",
     context:
       "I needed a single, credible home for my work that loads instantly and is trivial to update.",
     role: "Sole designer and developer — from information architecture to deployment.",
     approach: [
       "Built on the Next.js App Router with fully static rendering for instant loads and zero hosting cost on Vercel.",
+      "Drove the build agentically with Claude Code — scaffolding, the command palette, accessibility fixes, and Lighthouse passes.",
       "Centralized all content in a single typed data file, so adding a project is a one-object edit rather than a component change.",
-      "Added a ⌘K command palette and j/k keyboard navigation to make browsing fast for power users.",
     ],
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Claude Code", "Vercel"],
     outcome:
-      "Ships as static HTML with a 100 Lighthouse score; a new project takes about five minutes to add.",
-    screenshots: [
-      {
-        src: "/projects/portfolio-1.svg",
-        alt: "Portfolio home page showing the hero and project grid",
-      },
-    ],
+      "Scores 100 on desktop Lighthouse (96 on mobile) and ships as static HTML; adding a project is a one-object edit.",
+    screenshots: [],
     liveUrl: "https://anikethbuddolla.vercel.app",
     repoUrl: "https://github.com/anikethbuddolla/portfolio",
   },
@@ -93,18 +89,7 @@ export const projects: Project[] = [
     tech: ["React", "TypeScript", "IndexedDB", "Vite"],
     outcome:
       "Loads in under a second and works fully offline; used daily as my own scratchpad.",
-    screenshots: [
-      {
-        src: "/projects/markdown-notes-1.svg",
-        alt: "Markdown editor with live preview pane",
-      },
-      {
-        src: "/projects/markdown-notes-2.svg",
-        alt: "Notes list and search view",
-      },
-    ],
-    liveUrl: "https://markdown-notes-demo.vercel.app",
-    repoUrl: "https://github.com/anikethbuddolla/markdown-notes",
+    screenshots: [],
   },
   {
     slug: "analytics-platform",
@@ -124,16 +109,7 @@ export const projects: Project[] = [
     tech: ["Next.js", "Node.js", "PostgreSQL", "Redis"],
     outcome:
       "Cut time-to-insight from hours to seconds and was adopted by several internal teams.",
-    screenshots: [
-      {
-        src: "/projects/analytics-platform-1.svg",
-        alt: "Anonymized analytics dashboard with charts (sample data)",
-      },
-      {
-        src: "/projects/analytics-platform-2.svg",
-        alt: "Anonymized metric detail view (sample data)",
-      },
-    ],
+    screenshots: [],
     sourcePrivate: true,
   },
   {
@@ -154,12 +130,7 @@ export const projects: Project[] = [
     tech: ["Python", "PostgreSQL", "Docker", "AWS"],
     outcome:
       "Automated a previously manual process and surfaced discrepancies within minutes instead of days.",
-    screenshots: [
-      {
-        src: "/projects/payments-reconciliation-1.svg",
-        alt: "Anonymized reconciliation report (sample data)",
-      },
-    ],
+    screenshots: [],
     sourcePrivate: true,
   },
 ];
@@ -175,6 +146,17 @@ export type SkillGroup = {
 
 export const skills: SkillGroup[] = [
   {
+    category: "AI & Agents",
+    items: [
+      "Claude API",
+      "Claude Code",
+      "MCP (Model Context Protocol)",
+      "Agent design",
+      "Prompt engineering",
+      "RAG",
+    ],
+  },
+  {
     category: "Languages",
     items: ["TypeScript", "JavaScript", "Python", "SQL", "HTML", "CSS"],
   },
@@ -187,3 +169,57 @@ export const skills: SkillGroup[] = [
     items: ["Git", "Docker", "PostgreSQL", "Vercel", "GitHub Actions", "Figma"],
   },
 ];
+
+export type ExperienceItem = {
+  company: string;
+  role: string;
+  period: string;
+  location?: string;
+  bullets: string[];
+};
+
+// PLACEHOLDER — replace with your real roles and accomplishments.
+export const experience: ExperienceItem[] = [
+  {
+    company: "CPAL",
+    role: "Full-Stack & AI Engineer",
+    period: "20XX — Present",
+    location: "Remote",
+    bullets: [
+      "Replace with a specific thing you built or owned — ideally with a measurable result.",
+      "Add another concrete accomplishment (a system you shipped, a problem you solved, the impact).",
+    ],
+  },
+  {
+    company: "Previous Company",
+    role: "Your Role",
+    period: "20XX — 20XX",
+    bullets: ["Replace with a real accomplishment from this role."],
+  },
+];
+
+export type EducationItem = {
+  school: string;
+  credential: string;
+  period: string;
+  details?: string;
+};
+
+// PLACEHOLDER — replace with your real education.
+export const education: EducationItem[] = [
+  {
+    school: "Your University",
+    credential: "B.S. in Computer Science",
+    period: "20XX — 20XX",
+    details: "Optional: honors, relevant coursework, or activities.",
+  },
+];
+
+// PLACEHOLDER — list certifications, or empty this array to hide the section.
+export const certifications: string[] = [
+  "Add a certification (e.g., AWS Certified Developer) — or remove this list.",
+];
+
+// PLACEHOLDER — a one- or two-line résumé summary.
+export const resumeSummary =
+  "One- or two-line professional summary for the top of your résumé — who you are and what you do best.";

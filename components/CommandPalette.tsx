@@ -18,9 +18,15 @@ function go(href: string) {
 
 const navCommands: Command[] = [
   { id: "home", label: "Home", hint: "section", run: go("/") },
-  { id: "projects", label: "Projects", hint: "section", run: go("/#projects") },
-  { id: "skills", label: "Skills", hint: "section", run: go("/#skills") },
   { id: "about", label: "About", hint: "section", run: go("/#about") },
+  {
+    id: "experience",
+    label: "Experience",
+    hint: "section",
+    run: go("/#experience"),
+  },
+  { id: "projects", label: "Projects", hint: "section", run: go("/#projects") },
+  { id: "resume", label: "Resume", hint: "section", run: go("/#resume") },
   { id: "contact", label: "Contact", hint: "section", run: go("/#contact") },
 ];
 

@@ -6,10 +6,11 @@ type SectionProps = {
 };
 
 const OVERLINES: Record<string, string> = {
-  projects: "01 — Selected Work",
-  skills: "02 — Toolkit",
-  about: "03 — Profile",
-  contact: "04 — Get in touch",
+  about: "01 — Profile",
+  experience: "02 — Experience",
+  projects: "03 — Selected Work",
+  resume: "04 — Résumé",
+  contact: "05 — Get in touch",
 };
 
 export default function Section({

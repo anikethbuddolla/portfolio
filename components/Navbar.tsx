@@ -5,9 +5,11 @@ import ThemeToggle from "./ThemeToggle";
 import MobileMenu from "./MobileMenu";
 
 const links = [
-  { href: "/#projects", label: "Projects" },
-  { href: "/#skills", label: "Skills" },
+  { href: "/", label: "Home" },
   { href: "/#about", label: "About" },
+  { href: "/#experience", label: "Experience" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/#resume", label: "Resume" },
   { href: "/#contact", label: "Contact" },
 ];
 
@@ -32,8 +34,8 @@ export default function Navbar() {
             {profile.name}
           </span>
         </Link>
-        <div className="flex items-center gap-2 sm:gap-5">
-          <ul className="hidden gap-8 text-sm font-medium text-slate-600 dark:text-slate-300 sm:flex">
+        <div className="flex items-center gap-2 md:gap-5">
+          <ul className="hidden gap-6 text-sm font-medium text-slate-600 dark:text-slate-300 md:flex">
             {links.map((link) => (
               <li key={link.href}>
                 <Link
