@@ -182,16 +182,6 @@ export const experience: ExperienceItem[] = [
       "Debugged spatial join logic in sf and leaflet to correctly assign police incident and parcel records to neighborhood, ZIP code, and school campus geographies.",
     ],
   },
-  {
-    company: "Code2College",
-    role: "Student Developer",
-    period: "2023 — Present",
-    bullets: [
-      "Selected for a competitive technical internship-preparation program.",
-      "Built complete Python applications — a Wordle clone, a chatbot, and a SQL-backed banking app — using OOP and data structures.",
-      "Built front-ends with React and Svelte, including an e-commerce storefront and a NASA Mars Rover photo browser that consumes a public API.",
-    ],
-  },
 ];
 
 export type EducationItem = {
