@@ -27,7 +27,7 @@ export default function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label="Toggle dark mode"
-      className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-300 text-slate-600 transition-colors hover:border-accent hover:text-accent dark:border-slate-700 dark:text-slate-300"
+      className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-slate-300 text-slate-600 transition-colors hover:border-accent hover:text-accent dark:border-slate-700 dark:text-slate-300"
     >
       {/* Render a stable icon until mounted to avoid hydration mismatch */}
       {mounted && dark ? (

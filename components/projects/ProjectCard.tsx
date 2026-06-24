@@ -22,7 +22,7 @@ export default function ProjectCard({ project, active }: ProjectCardProps) {
         <TypeBadge type={project.type} />
         <StatusBadge project={project} />
         {project.year && (
-          <span className="ml-auto font-mono text-xs text-slate-400">
+          <span className="ml-auto font-mono text-xs text-slate-500 dark:text-slate-400">
             {project.year}
           </span>
         )}

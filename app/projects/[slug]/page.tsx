@@ -66,7 +66,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           <TypeBadge type={project.type} />
           <StatusBadge project={project} />
           {project.year && (
-            <span className="font-mono text-xs text-slate-400">
+            <span className="font-mono text-xs text-slate-500 dark:text-slate-400">
               {project.year}
             </span>
           )}

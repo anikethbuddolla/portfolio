@@ -153,16 +153,17 @@ export default function CommandPalette() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={onListKey}
+            aria-label="Search sections, projects, and links"
             placeholder="Jump to a section, project, or link…"
-            className="w-full bg-transparent py-4 font-mono text-sm outline-none placeholder:text-slate-400"
+            className="w-full bg-transparent py-4 font-mono text-sm outline-none placeholder:text-slate-500 dark:placeholder:text-slate-400"
           />
-          <kbd className="rounded border border-slate-300 px-1.5 py-0.5 font-mono text-xs text-slate-400 dark:border-slate-600">
+          <kbd className="rounded border border-slate-300 px-1.5 py-0.5 font-mono text-xs text-slate-500 dark:border-slate-600 dark:text-slate-400">
             esc
           </kbd>
         </div>
         <ul className="max-h-80 overflow-y-auto p-2">
           {results.length === 0 && (
-            <li className="px-3 py-6 text-center font-mono text-sm text-slate-400">
+            <li className="px-3 py-6 text-center font-mono text-sm text-slate-500 dark:text-slate-400">
               No matches
             </li>
           )}
@@ -184,7 +185,9 @@ export default function CommandPalette() {
                 <span>{cmd.label}</span>
                 <span
                   className={`text-xs ${
-                    i === selected ? "text-white/70" : "text-slate-400"
+                    i === selected
+                      ? "text-white/70"
+                      : "text-slate-500 dark:text-slate-400"
                   }`}
                 >
                   {cmd.hint}

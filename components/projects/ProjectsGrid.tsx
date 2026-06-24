@@ -104,7 +104,7 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
             </button>
           ))}
         </div>
-        <span className="ml-auto font-mono text-xs text-slate-400">
+        <span className="ml-auto font-mono text-xs text-slate-500 dark:text-slate-400">
           {visible.length} {visible.length === 1 ? "project" : "projects"}
           <span className="hidden md:inline">
             {" "}

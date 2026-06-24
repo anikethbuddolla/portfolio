@@ -8,6 +8,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://anikethbuddolla.vercel.app"),
   title: `${profile.name} — ${profile.title}`,
   description: profile.bio,
   openGraph: {

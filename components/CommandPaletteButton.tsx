@@ -6,7 +6,7 @@ export default function CommandPaletteButton() {
       type="button"
       onClick={() => window.dispatchEvent(new Event("command-palette:open"))}
       aria-label="Open search"
-      className="inline-flex h-9 items-center gap-2 rounded-md border border-slate-300 px-2.5 text-xs text-slate-500 transition-colors hover:border-accent hover:text-accent dark:border-slate-700 dark:text-slate-400"
+      className="inline-flex h-11 items-center gap-2 rounded-md border border-slate-300 px-3 text-xs text-slate-500 transition-colors hover:border-accent hover:text-accent dark:border-slate-700 dark:text-slate-400"
     >
       <svg
         viewBox="0 0 24 24"

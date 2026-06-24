@@ -28,7 +28,7 @@ export default function MobileMenu() {
         onClick={() => setOpen((o) => !o)}
         aria-label="Toggle menu"
         aria-expanded={open}
-        className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-300 text-slate-600 transition-colors hover:border-accent hover:text-accent dark:border-slate-700 dark:text-slate-300"
+        className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-slate-300 text-slate-600 transition-colors hover:border-accent hover:text-accent dark:border-slate-700 dark:text-slate-300"
       >
         <svg
           viewBox="0 0 24 24"
@@ -51,7 +51,7 @@ export default function MobileMenu() {
         <>
           {/* tap-away backdrop */}
           <div
-            className="fixed inset-0 top-[57px] z-40 bg-black/20"
+            className="fixed inset-0 z-40 bg-black/20"
             onClick={() => setOpen(false)}
           />
           <div className="absolute inset-x-0 top-full z-50 border-b border-slate-200 bg-white shadow-lg dark:border-slate-800 dark:bg-slate-950">

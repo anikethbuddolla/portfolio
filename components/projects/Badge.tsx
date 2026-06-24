@@ -18,7 +18,7 @@ export function TypeBadge({ type }: { type: Project["type"] }) {
 export function StatusBadge({ project }: { project: Project }) {
   if (project.liveUrl) {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-md bg-emerald-500/10 px-2 py-0.5 font-mono text-xs font-medium text-emerald-600 dark:text-emerald-400">
+      <span className="inline-flex items-center gap-1.5 rounded-md bg-emerald-500/10 px-2 py-0.5 font-mono text-xs font-medium text-emerald-800 dark:text-emerald-300">
         <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
         live
       </span>
@@ -26,7 +26,7 @@ export function StatusBadge({ project }: { project: Project }) {
   }
   if (project.sourcePrivate) {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-md bg-amber-500/10 px-2 py-0.5 font-mono text-xs font-medium text-amber-600 dark:text-amber-400">
+      <span className="inline-flex items-center gap-1.5 rounded-md bg-amber-500/10 px-2 py-0.5 font-mono text-xs font-medium text-amber-800 dark:text-amber-300">
         <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
         source private
       </span>
