@@ -1,16 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function ScrollProgress() {
-  const [progress, setProgress] = useState(0);
+  const barRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let raf = 0;
     const update = () => {
       const el = document.documentElement;
       const max = el.scrollHeight - el.clientHeight;
-      setProgress(max > 0 ? (el.scrollTop / max) * 100 : 0);
+      const progress = max > 0 ? el.scrollTop / max : 0;
+      const bar = barRef.current;
+      // Write straight to the DOM — no React re-render per frame, and
+      // transform/scaleX composites on the GPU (unlike animating width).
+      if (bar) bar.style.transform = `scaleX(${progress})`;
       raf = 0;
     };
     const onScroll = () => {
@@ -32,8 +36,9 @@ export default function ScrollProgress() {
       aria-hidden
     >
       <div
-        className="h-full bg-accent transition-[width] duration-150 ease-out"
-        style={{ width: `${progress}%` }}
+        ref={barRef}
+        className="h-full origin-left bg-accent transition-transform duration-150 ease-out"
+        style={{ transform: "scaleX(0)" }}
       />
     </div>
   );
