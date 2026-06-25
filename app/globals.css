@@ -60,11 +60,27 @@ select {
     transform: none;
   }
 }
+/* Per-item reveal slides up WITHOUT fading opacity. A scroll-driven opacity
+   fade leaves cards parked at partial opacity at a given scroll position,
+   which axe reads as low text contrast — so cards only translate, never fade,
+   keeping text at full opacity (and full contrast) the whole time. */
+@keyframes revealRise {
+  from {
+    transform: translateY(18px);
+  }
+  to {
+    transform: none;
+  }
+}
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
-    .reveal,
-    .reveal-item {
+    .reveal {
       animation: revealIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+      animation-timeline: view();
+      animation-range: entry 4% cover 24%;
+    }
+    .reveal-item {
+      animation: revealRise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
       animation-timeline: view();
       animation-range: entry 4% cover 24%;
     }
