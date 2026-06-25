@@ -32,11 +32,16 @@ export default function CommandPalette() {
       window.addEventListener("command-palette:open", onOpen);
     }
 
-    const ric = window.requestIdleCallback;
+    // Safari historically lacked requestIdleCallback — fall back to a short
+    // timeout there. typeof keeps TS from treating the API as always present.
+    const ric =
+      typeof window.requestIdleCallback === "function"
+        ? window.requestIdleCallback
+        : null;
     const handle = ric ? ric(register) : window.setTimeout(register, 200);
 
     return () => {
-      if (ric && window.cancelIdleCallback) window.cancelIdleCallback(handle);
+      if (ric) window.cancelIdleCallback(handle);
       else clearTimeout(handle);
       window.removeEventListener("keydown", onKey);
       window.removeEventListener("command-palette:open", onOpen);
