@@ -1,5 +1,3 @@
-import Reveal from "./Reveal";
-
 type SectionProps = {
   id: string;
   title: string;
@@ -27,7 +25,7 @@ export default function Section({
       id={id}
       className={`mx-auto max-w-5xl px-6 py-16 sm:py-20 ${className}`}
     >
-      <Reveal>
+      <div className="reveal">
         <div className="mb-10 border-b border-slate-200 pb-5 dark:border-slate-800">
           {overline && (
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
@@ -39,7 +37,7 @@ export default function Section({
           </h2>
         </div>
         {children}
-      </Reveal>
+      </div>
     </section>
   );
 }

@@ -6,7 +6,14 @@ import CommandPalette from "@/components/CommandPalette";
 import ScrollProgress from "@/components/ScrollProgress";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
+// Mono isn't used above the fold, so don't preload it — that frees
+// high-priority bandwidth for Inter (the LCP text) at startup.
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+  preload: false,
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://anikethbuddolla.vercel.app"),
