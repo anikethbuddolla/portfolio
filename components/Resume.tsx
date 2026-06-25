@@ -51,16 +51,14 @@ export default function Resume() {
                 className="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900"
               >
                 <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                  <h4 className="font-semibold">
-                    {l.role}{" "}
-                    <span className="font-normal text-slate-500 dark:text-slate-400">
-                      · {l.org}
-                    </span>
-                  </h4>
+                  <h4 className="font-semibold">{l.org}</h4>
                   <span className="font-mono text-xs text-slate-500 dark:text-slate-400">
                     {l.period}
                   </span>
                 </div>
+                <p className="mt-0.5 text-sm text-slate-500 dark:text-slate-400">
+                  {l.role}
+                </p>
                 {l.detail && (
                   <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
                     {l.detail}

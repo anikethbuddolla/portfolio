@@ -1,11 +1,11 @@
 export const profile = {
   name: "Aniketh Buddolla",
-  title: "Student Developer · AI & Software",
+  title: "Software Intern",
   about:
     "Hi, my name is Aniketh Buddolla, and I am a senior at Westside High School in Houston, Texas. My interests include artificial intelligence, software engineering, and chemical engineering. I started coding at a young age and have since developed a wide variety of projects while expanding my technical skills. I'm passionate about exploring how technology and engineering can solve real-world problems, particularly in areas such as environmental innovation and sustainable energy.",
   email: "aniketh.buddolla@gmail.com",
   github: "https://github.com/anikethbuddolla",
-  linkedin: "https://www.linkedin.com/in/anikethbuddolla",
+  linkedin: "",
 };
 
 export type ProjectType = "personal" | "work";
@@ -64,6 +64,7 @@ export const projects: Project[] = [
       "A polished single-page site (~4,000 lines) plus a written reflection on designing within a design system's constraints.",
     screenshots: [],
     liveUrl: "/demos/design-system-lab/index.html",
+    repoUrl: "https://github.com/anikethbuddolla/design-system-lab",
   },
   {
     slug: "practice-studio",

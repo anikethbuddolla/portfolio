@@ -54,12 +54,17 @@ const linkCommands: Command[] = [
     hint: "external",
     run: () => window.open(profile.github, "_blank", "noopener,noreferrer"),
   },
-  {
-    id: "linkedin",
-    label: "LinkedIn",
-    hint: "external",
-    run: () => window.open(profile.linkedin, "_blank", "noopener,noreferrer"),
-  },
+  ...(profile.linkedin
+    ? [
+        {
+          id: "linkedin",
+          label: "LinkedIn",
+          hint: "external",
+          run: () =>
+            window.open(profile.linkedin, "_blank", "noopener,noreferrer"),
+        },
+      ]
+    : []),
 ];
 
 const ALL: Command[] = [...navCommands, ...projectCommands, ...linkCommands];
