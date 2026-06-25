@@ -196,6 +196,35 @@ select {
   will-change: transform, width;
 }
 
+/* Scroll progress bar — driven entirely by a scroll-driven animation, no JS.
+   Sits at scaleX(0) by default so unsupported browsers just hide it. */
+.scroll-progress {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  height: 2px;
+  z-index: 55;
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
+@keyframes scrollProgress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .scroll-progress {
+      animation: scrollProgress linear both;
+      animation-timeline: scroll(root);
+    }
+  }
+}
+
 /* Dot-grid texture (uses currentColor) */
 .dot-grid {
   background-image: radial-gradient(currentColor 1px, transparent 1px);

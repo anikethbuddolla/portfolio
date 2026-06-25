@@ -14,7 +14,9 @@ export default function CommandPalette() {
   const [open, setOpen] = useState(false);
 
   // Global ⌘K / Ctrl+K toggle, plus a custom event for the nav button.
-  // This listener is tiny and is all that ships up front.
+  // Registering the listeners is deferred to idle time so it stays out of the
+  // initial hydration/Total-Blocking-Time window — the palette isn't needed
+  // until the user actually reaches for it.
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
@@ -25,9 +27,17 @@ export default function CommandPalette() {
     function onOpen() {
       setOpen(true);
     }
-    window.addEventListener("keydown", onKey);
-    window.addEventListener("command-palette:open", onOpen);
+    function register() {
+      window.addEventListener("keydown", onKey);
+      window.addEventListener("command-palette:open", onOpen);
+    }
+
+    const ric = window.requestIdleCallback;
+    const handle = ric ? ric(register) : window.setTimeout(register, 200);
+
     return () => {
+      if (ric && window.cancelIdleCallback) window.cancelIdleCallback(handle);
+      else clearTimeout(handle);
       window.removeEventListener("keydown", onKey);
       window.removeEventListener("command-palette:open", onOpen);
     };
