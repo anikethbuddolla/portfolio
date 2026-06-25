@@ -8,7 +8,7 @@ export default function Experience() {
         {experience.map((job, i) => (
           <div
             key={`${job.company}-${i}`}
-            className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900"
+            className="rounded-xl border border-slate-200 bg-white p-6 card-hover dark:border-slate-800 dark:bg-slate-900"
           >
             <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
               <h3 className="text-lg font-semibold">
@@ -47,7 +47,7 @@ export default function Experience() {
           {skills.map((group) => (
             <div
               key={group.category}
-              className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900"
+              className="rounded-xl border border-slate-200 bg-white p-6 card-hover dark:border-slate-800 dark:bg-slate-900"
             >
               <h4 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
                 {group.category}

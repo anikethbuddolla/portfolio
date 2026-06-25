@@ -9,6 +9,47 @@ function GroupHeading({ children }: { children: React.ReactNode }) {
   );
 }
 
+function TrophyIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-4 w-4"
+      aria-hidden
+    >
+      <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+      <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+      <path d="M4 22h16" />
+      <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+      <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+      <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+    </svg>
+  );
+}
+
+function GlobeIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-3.5 w-3.5"
+      aria-hidden
+    >
+      <circle cx="12" cy="12" r="10" />
+      <path d="M2 12h20" />
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z" />
+    </svg>
+  );
+}
+
 export default function Resume() {
   return (
     <Section id="resume" title="Résumé">
@@ -20,7 +61,7 @@ export default function Resume() {
             {education.map((ed, i) => (
               <div
                 key={i}
-                className="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900"
+                className="rounded-xl border border-slate-200 bg-white p-5 card-hover dark:border-slate-800 dark:bg-slate-900"
               >
                 <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                   <h4 className="font-semibold">{ed.school}</h4>
@@ -48,7 +89,7 @@ export default function Resume() {
             {leadership.map((l, i) => (
               <div
                 key={i}
-                className="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900"
+                className="rounded-xl border border-slate-200 bg-white p-5 card-hover dark:border-slate-800 dark:bg-slate-900"
               >
                 <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                   <h4 className="font-semibold">{l.org}</h4>
@@ -72,31 +113,46 @@ export default function Resume() {
         {/* Awards */}
         <div>
           <GroupHeading>Awards</GroupHeading>
-          <ul className="space-y-2">
+          <div className="grid gap-3 sm:grid-cols-2">
             {awards.map((a, i) => (
-              <li
+              <div
                 key={i}
-                className="flex items-baseline justify-between gap-4 border-b border-slate-100 pb-2 last:border-0 dark:border-slate-800"
+                className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4 card-hover dark:border-slate-800 dark:bg-slate-900"
               >
-                <span className="text-sm text-slate-600 dark:text-slate-300">
-                  {a.name}
+                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent">
+                  <TrophyIcon />
                 </span>
-                {a.year && (
-                  <span className="shrink-0 font-mono text-xs text-slate-500 dark:text-slate-400">
-                    {a.year}
-                  </span>
-                )}
-              </li>
+                <div className="min-w-0">
+                  <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
+                    {a.name}
+                  </p>
+                  {a.year && (
+                    <p className="mt-0.5 font-mono text-xs text-slate-500 dark:text-slate-400">
+                      {a.year}
+                    </p>
+                  )}
+                </div>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
 
         {/* Languages */}
         <div>
           <GroupHeading>Languages</GroupHeading>
-          <p className="text-sm text-slate-600 dark:text-slate-300">
-            {spokenLanguages.join(" · ")}
-          </p>
+          <ul className="flex flex-wrap gap-2">
+            {spokenLanguages.map((l) => (
+              <li
+                key={l}
+                className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-sm font-medium text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"
+              >
+                <span className="text-accent">
+                  <GlobeIcon />
+                </span>
+                {l}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </Section>

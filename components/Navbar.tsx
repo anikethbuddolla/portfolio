@@ -3,15 +3,7 @@ import { profile } from "@/lib/data";
 import CommandPaletteButton from "./CommandPaletteButton";
 import ThemeToggle from "./ThemeToggle";
 import MobileMenu from "./MobileMenu";
-
-const links = [
-  { href: "/", label: "Home" },
-  { href: "/#about", label: "About" },
-  { href: "/#experience", label: "Experience" },
-  { href: "/#projects", label: "Projects" },
-  { href: "/#resume", label: "Resume" },
-  { href: "/#contact", label: "Contact" },
-];
+import NavLinks from "./NavLinks";
 
 function initials(name: string) {
   return name
@@ -35,18 +27,7 @@ export default function Navbar() {
           </span>
         </Link>
         <div className="flex items-center gap-2 md:gap-5">
-          <ul className="hidden gap-6 text-sm font-medium text-slate-600 dark:text-slate-300 md:flex">
-            {links.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="transition-colors hover:text-accent dark:hover:text-accent"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <NavLinks />
           <div className="flex items-center gap-2">
             <CommandPaletteButton />
             <ThemeToggle />

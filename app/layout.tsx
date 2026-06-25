@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { profile } from "@/lib/data";
 import CommandPalette from "@/components/CommandPalette";
+import ScrollProgress from "@/components/ScrollProgress";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
@@ -43,6 +44,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${mono.variable} font-sans antialiased`}
       >
+        <ScrollProgress />
         {children}
         <CommandPalette />
       </body>
