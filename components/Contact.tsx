@@ -1,4 +1,5 @@
 import Section from "./Section";
+import ContactForm from "./ContactForm";
 import { profile } from "@/lib/data";
 
 function MailIcon() {
@@ -69,11 +70,15 @@ export default function Contact() {
   return (
     <Section id="contact" title="Contact">
       <p className="reveal-item max-w-2xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-        I&apos;m always open to interesting projects and conversations. Reach out
-        through any of the links below.
+        I&apos;m always open to interesting projects and conversations. Send me a
+        message below, or reach out through any of these links.
       </p>
-      <ul className="mt-8 grid gap-4 sm:grid-cols-3">
-        {contacts.map((contact) => {
+      <div className="mt-8 grid gap-6 lg:grid-cols-5">
+        <div className="lg:col-span-3">
+          <ContactForm />
+        </div>
+        <ul className="grid gap-4 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-1">
+          {contacts.map((contact) => {
           const inner = (
             <>
               <span
@@ -127,8 +132,9 @@ export default function Contact() {
               )}
             </li>
           );
-        })}
-      </ul>
+          })}
+        </ul>
+      </div>
     </Section>
   );
 }
