@@ -135,28 +135,41 @@ select {
   will-change: transform, opacity;
 }
 
-/* One-time sheen that sweeps across the hero name after it fades in */
+/* One-time glint that sweeps across the hero name after it fades in.
+   Animates transform + opacity on an overlay band rather than
+   background-position, so it runs on the compositor off the main thread. */
 @keyframes nameSheen {
   from {
-    background-position: 160% center;
+    transform: translateX(-150%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
   }
   to {
-    background-position: -60% center;
+    transform: translateX(150%);
+    opacity: 0;
   }
 }
 .name-shimmer {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  color: var(--foreground);
+}
+.name-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
   background-image: linear-gradient(
     100deg,
-    var(--foreground) 0%,
-    var(--foreground) 42%,
-    #818cf8 50%,
-    var(--foreground) 58%,
-    var(--foreground) 100%
+    transparent 35%,
+    rgba(129, 140, 248, 0.6) 50%,
+    transparent 65%
   );
-  background-size: 250% auto;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  transform: translateX(-150%);
+  will-change: transform, opacity;
   animation: nameSheen 1.5s ease-out 0.6s 1 both;
 }
 
@@ -262,10 +275,8 @@ select {
   .aurora-2 {
     animation: none !important;
   }
-  .name-shimmer {
-    animation: none !important;
-    background: none;
-    -webkit-text-fill-color: currentColor;
+  .name-shimmer::after {
+    display: none;
   }
   .nav-indicator {
     transition: none !important;
