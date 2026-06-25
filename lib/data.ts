@@ -131,7 +131,7 @@ export const skills: SkillGroup[] = [
     items: ["Claude API", "Claude Code", "Cursor", "GitHub Copilot"],
   },
   {
-    category: "Languages",
+    category: "Programming Languages",
     items: ["TypeScript", "JavaScript", "Python", "SQL", "HTML", "CSS", "R", "Java"],
   },
   {
@@ -214,34 +214,41 @@ export const leadership: LeadershipItem[] = [
     role: "President (prev. Freshman VP, Club Liaison, Historian)",
     period: "2023 — Present",
     detail:
-      "Led student initiatives and events; helped reopen the school library serving 3,000+ students.",
+      "Led student initiatives and events; helped reopen the school library serving 3,000+ students; led the Homecoming Committee; led the International Festival Committee; started several clubs; created a digital archive of Student Council activities.",
   },
   {
     org: "FRC Robotics",
     role: "Member",
     period: "2023 — Present",
-    detail: "Designed robot components with CAD and Java; 2× State Finalist.",
+    detail:
+      "Programmed robot subsystems in Java for autonomous and driver functionality; designed robot components using Onshape CAD software; assembled robot components using power tools; worked on performance improvements throughout the season; 2× State Finalist.",
   },
   {
     org: "Orchestra",
-    role: "Varsity Violinist",
+    role: "Varsity Violinist (Principal Second Violin)",
     period: "2017 — Present",
-    detail: "Earned UIL Sweepstakes awards.",
+    detail:
+      "Two-time UIL Sweepstakes award recipient; competed in UIL Solo & Ensemble; taught violin to 200+ children across underserved rural villages in India.",
   },
   {
     org: "Track & Field",
     role: "Varsity",
     period: "2024 — Present",
+    detail: "Competed at the UIL District and Area levels.",
   },
   {
     org: "National Wildlife Federation — Earth Tomorrow Houston",
     role: "Member",
     period: "2023 — Present",
+    detail:
+      "Volunteered 40+ hours on conservation projects at Big Thicket National Preserve and Huntsville State Park (TX), including trash cleanups, tree planting, and habitat stewardship.",
   },
   {
     org: "KidsVikas Houston ALT",
     role: "Volunteer",
     period: "2024 — Present",
+    detail:
+      "Volunteered 60+ hours packing meals for children in need, assembling PB&J sandwiches and snack bags distributed to local food banks.",
   },
 ];
 
@@ -252,10 +259,13 @@ export type Award = {
 
 export const awards: Award[] = [
   { name: "Python Level 1 Certified — CodeHS", year: "2024" },
+  { name: "Aerial Drone Competition Flight Excellence Award", year: "2024" },
   { name: "National Honor Society (NHS)", year: "2025" },
   { name: "UIL Orchestra Sweepstakes", year: "2025" },
-  { name: "IT Specialist — Java (certification)", year: "2026" },
+  { name: "FIRST Robotics Competition State Finalist", year: "2025" },
+  { name: "IT Specialist — Java Certification", year: "2026" },
   { name: "Student Council President", year: "2026" },
+  { name: "FIRST Robotics Competition State Finalist", year: "2026" },
 ];
 
 export const spokenLanguages = ["English", "Telugu"];

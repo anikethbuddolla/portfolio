@@ -12,7 +12,7 @@ export default function ProjectCard({ project, active }: ProjectCardProps) {
     <Link
       href={`/projects/${project.slug}`}
       data-project-card
-      className={`group card-hover flex flex-col rounded-xl border bg-white p-6 outline-none dark:bg-slate-900 ${
+      className={`group reveal-item card-hover flex flex-col rounded-xl border bg-white p-6 outline-none dark:bg-slate-900 ${
         active
           ? "border-accent ring-2 ring-accent/40"
           : "border-slate-200 dark:border-slate-800"

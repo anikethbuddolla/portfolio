@@ -61,7 +61,7 @@ export default function Resume() {
             {education.map((ed, i) => (
               <div
                 key={i}
-                className="rounded-xl border border-slate-200 bg-white p-5 card-hover dark:border-slate-800 dark:bg-slate-900"
+                className="reveal-item rounded-xl border border-slate-200 bg-white p-5 card-hover dark:border-slate-800 dark:bg-slate-900"
               >
                 <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                   <h4 className="font-semibold">{ed.school}</h4>
@@ -89,7 +89,7 @@ export default function Resume() {
             {leadership.map((l, i) => (
               <div
                 key={i}
-                className="rounded-xl border border-slate-200 bg-white p-5 card-hover dark:border-slate-800 dark:bg-slate-900"
+                className="reveal-item rounded-xl border border-slate-200 bg-white p-5 card-hover dark:border-slate-800 dark:bg-slate-900"
               >
                 <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                   <h4 className="font-semibold">{l.org}</h4>
@@ -117,7 +117,7 @@ export default function Resume() {
             {awards.map((a, i) => (
               <div
                 key={i}
-                className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4 card-hover dark:border-slate-800 dark:bg-slate-900"
+                className="reveal-item flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4 card-hover dark:border-slate-800 dark:bg-slate-900"
               >
                 <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent">
                   <TrophyIcon />
@@ -139,12 +139,12 @@ export default function Resume() {
 
         {/* Languages */}
         <div>
-          <GroupHeading>Languages</GroupHeading>
+          <GroupHeading>Languages Spoken</GroupHeading>
           <ul className="flex flex-wrap gap-2">
             {spokenLanguages.map((l) => (
               <li
                 key={l}
-                className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-sm font-medium text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"
+                className="reveal-item inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-sm font-medium text-slate-700 card-hover dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"
               >
                 <span className="text-accent">
                   <GlobeIcon />

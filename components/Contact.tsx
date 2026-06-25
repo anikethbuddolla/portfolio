@@ -68,7 +68,7 @@ const contacts: ContactItem[] = [
 export default function Contact() {
   return (
     <Section id="contact" title="Contact">
-      <p className="max-w-2xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+      <p className="reveal-item max-w-2xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">
         I&apos;m always open to interesting projects and conversations. Reach out
         through any of the links below.
       </p>
@@ -116,12 +116,12 @@ export default function Contact() {
                     contact.href.startsWith("mailto:") ? undefined : "_blank"
                   }
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-5 card-hover dark:border-slate-800 dark:bg-slate-900"
+                  className="reveal-item flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-5 card-hover dark:border-slate-800 dark:bg-slate-900"
                 >
                   {inner}
                 </a>
               ) : (
-                <div className="flex items-center gap-4 rounded-xl border border-dashed border-slate-200 bg-white p-5 card-hover dark:border-slate-800 dark:bg-slate-900">
+                <div className="reveal-item flex items-center gap-4 rounded-xl border border-dashed border-slate-200 bg-white p-5 card-hover dark:border-slate-800 dark:bg-slate-900">
                   {inner}
                 </div>
               )}

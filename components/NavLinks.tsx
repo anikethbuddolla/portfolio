@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const links = [
   { href: "/", id: "", label: "Home" },
@@ -16,6 +16,8 @@ const links = [
 export default function NavLinks() {
   const pathname = usePathname();
   const [active, setActive] = useState("");
+  const [indicator, setIndicator] = useState({ left: 0, width: 0, opacity: 0 });
+  const itemRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
 
   useEffect(() => {
     if (pathname !== "/") {
@@ -45,14 +47,33 @@ export default function NavLinks() {
     return () => io.disconnect();
   }, [pathname]);
 
+  // Slide the indicator under whichever link is active. Only runs on active
+  // change / resize (no per-frame work), so the layout read stays cheap.
+  useEffect(() => {
+    function measure() {
+      const el = itemRefs.current[active];
+      if (!el) {
+        setIndicator((prev) => ({ ...prev, opacity: 0 }));
+        return;
+      }
+      setIndicator({ left: el.offsetLeft, width: el.offsetWidth, opacity: 1 });
+    }
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [active, pathname]);
+
   return (
-    <ul className="hidden gap-6 text-sm font-medium text-slate-600 dark:text-slate-300 md:flex">
+    <ul className="relative hidden gap-6 text-sm font-medium text-slate-600 dark:text-slate-300 md:flex">
       {links.map((link) => {
         const isActive = pathname === "/" && link.id === active;
         return (
           <li key={link.href}>
             <Link
               href={link.href}
+              ref={(el) => {
+                itemRefs.current[link.id] = el;
+              }}
               className={`nav-link transition-colors hover:text-accent dark:hover:text-accent ${
                 isActive ? "is-active text-accent dark:text-accent" : ""
               }`}
@@ -62,6 +83,15 @@ export default function NavLinks() {
           </li>
         );
       })}
+      <span
+        aria-hidden
+        className="nav-indicator text-accent"
+        style={{
+          transform: `translateX(${indicator.left}px)`,
+          width: indicator.width,
+          opacity: indicator.opacity,
+        }}
+      />
     </ul>
   );
 }
