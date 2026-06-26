@@ -43,7 +43,9 @@ export default function ScreenshotGallery({
 
   return (
     <>
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div
+        className={`grid gap-4 ${screenshots.length > 1 ? "sm:grid-cols-2" : ""}`}
+      >
         {screenshots.map((shot, i) => (
           <button
             key={shot.src}

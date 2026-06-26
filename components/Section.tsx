@@ -23,7 +23,7 @@ export default function Section({
   return (
     <section
       id={id}
-      className={`mx-auto max-w-5xl px-6 py-16 sm:py-20 ${className}`}
+      className={`mx-auto max-w-5xl px-6 py-12 sm:py-14 ${className}`}
     >
       <div className="reveal mb-10 border-b border-slate-200 pb-5 dark:border-slate-800">
         {overline && (

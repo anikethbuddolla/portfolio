@@ -6,6 +6,10 @@ export const profile = {
   email: "aniketh.buddolla@gmail.com",
   github: "https://github.com/anikethbuddolla",
   linkedin: "",
+  // Hero portrait. Set this to a licensed/owned image in /public (e.g.
+  // "/portrait.png") to switch the hero to its two-column layout. Empty = the
+  // hero renders as a clean, full-width text layout.
+  image: "",
 };
 
 export type ProjectType = "personal" | "work";
@@ -34,6 +38,8 @@ export type Project = {
   outcome: string;
   /** Add anonymized raster images (png/jpg) to /public/projects/ and list them here */
   screenshots: Screenshot[];
+  /** Landscape card thumbnail in /public/projects/. Omit to show a placeholder. */
+  thumbnail?: string;
   /** Personal projects only */
   liveUrl?: string;
   /** Personal projects only */
@@ -62,7 +68,13 @@ export const projects: Project[] = [
     tech: ["HTML", "CSS", "JavaScript", "Adobe Spectrum"],
     outcome:
       "A polished single-page site (~4,000 lines) plus a written reflection on designing within a design system's constraints.",
-    screenshots: [],
+    screenshots: [
+      {
+        src: "/projects/design-system-lab.png",
+        alt: "Design System Lab — the hero, composed entirely from Adobe Spectrum components",
+      },
+    ],
+    thumbnail: "/projects/design-system-lab.png",
     liveUrl: "/demos/design-system-lab/index.html",
     repoUrl: "https://github.com/anikethbuddolla/design-system-lab",
   },
@@ -83,7 +95,13 @@ export const projects: Project[] = [
     tech: ["TypeScript", "Bun", "React", "OpenTUI"],
     outcome:
       "A complete, polished CLI tool (~1,500 lines) with tap-tempo, scale and drone references, and auto-seasonal themes.",
-    screenshots: [],
+    screenshots: [
+      {
+        src: "/projects/practice-studio.png",
+        alt: "Practice Studio in the terminal — metronome playing at 100 BPM with a drone on A3, recording a session",
+      },
+    ],
+    thumbnail: "/projects/practice-studio.png",
     repoUrl: "https://github.com/anikethbuddolla/practice-studio",
   },
   {

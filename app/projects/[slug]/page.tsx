@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScreenshotGallery from "@/components/projects/ScreenshotGallery";
+import LiveDemoEmbed from "@/components/projects/LiveDemoEmbed";
 import { TypeBadge, StatusBadge } from "@/components/projects/Badge";
 import { getProject, projects } from "@/lib/data";
 
@@ -50,6 +51,9 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   const index = projects.findIndex((p) => p.slug === project.slug);
   const prev = index > 0 ? projects[index - 1] : null;
   const next = index < projects.length - 1 ? projects[index + 1] : null;
+
+  // A bundled, same-origin demo (path starts with "/") can be embedded live.
+  const canEmbed = !!project.liveUrl && project.liveUrl.startsWith("/");
 
   return (
     <>
@@ -117,10 +121,22 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           </div>
         ) : (
           <>
-            {project.screenshots.length > 0 && (
-              <div className="mt-12">
-                <ScreenshotGallery screenshots={project.screenshots} />
-              </div>
+            {canEmbed ? (
+              <figure className="mt-12">
+                <LiveDemoEmbed
+                  url={project.liveUrl!}
+                  label={`${project.title} — live demo`}
+                />
+                <figcaption className="mt-3 text-center font-mono text-xs text-slate-500 dark:text-slate-400">
+                  Live, interactive — try it right here, or open it in a new tab.
+                </figcaption>
+              </figure>
+            ) : (
+              project.screenshots.length > 0 && (
+                <div className="mt-12">
+                  <ScreenshotGallery screenshots={project.screenshots} />
+                </div>
+              )
             )}
 
             <div className="mt-12 space-y-10">

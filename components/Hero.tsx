@@ -1,7 +1,13 @@
 import Link from "next/link";
+import Image from "next/image";
 import { profile } from "@/lib/data";
+import TypedName from "./TypedName";
 
 export default function Hero() {
+  // Only render the two-column portrait layout once a real photo is set;
+  // otherwise fall back to a clean, full-width text hero.
+  const hasPortrait = Boolean(profile.image);
+
   return (
     <section className="relative overflow-hidden border-b border-slate-200 dark:border-slate-800">
       {/* subtle background: soft aurora + fading dot-grid */}
@@ -14,43 +20,80 @@ export default function Hero() {
         <div className="dot-grid absolute inset-0 text-slate-300/50 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)] dark:text-slate-700/40" />
       </div>
 
-      <div className="relative mx-auto flex max-w-5xl flex-col justify-center px-6 py-24 sm:py-32">
-        <p
-          className="hero-item mb-4 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-accent"
-          style={{ animationDelay: "0ms" }}
-        >
-          <span className="h-px w-8 bg-accent" />
-          {profile.title}
-        </p>
-        <h1
-          className="hero-item max-w-3xl text-4xl font-bold leading-[1.1] tracking-tight sm:text-6xl"
-          style={{ animationDelay: "90ms" }}
-        >
-          <span className="name-shimmer">{profile.name}</span>
-        </h1>
-        <p
-          className="hero-item mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 dark:text-slate-300"
-          style={{ animationDelay: "180ms" }}
-        >
-          High school senior in Houston building software and AI projects.
-        </p>
-        <div
-          className="hero-item mt-8 flex flex-wrap gap-4"
-          style={{ animationDelay: "270ms" }}
-        >
-          <Link
-            href="#projects"
-            className="rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-lg hover:shadow-accent/25 active:translate-y-0"
+      <div
+        className={`relative mx-auto grid max-w-5xl grid-cols-1 items-center gap-12 px-6 py-24 sm:py-32 ${
+          hasPortrait ? "lg:grid-cols-[1.4fr_0.9fr]" : ""
+        }`}
+      >
+        {/* Text column */}
+        <div className="order-2 lg:order-1">
+          <h1
+            className="hero-item max-w-3xl text-4xl font-bold leading-[1.1] tracking-tight sm:text-6xl"
+            style={{ animationDelay: "0ms" }}
           >
-            View my work
-          </Link>
-          <Link
-            href="#contact"
-            className="rounded-lg border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition-all duration-200 hover:-translate-y-0.5 hover:border-accent hover:text-accent hover:shadow-md active:translate-y-0 dark:border-slate-700 dark:text-slate-200"
+            <TypedName text={profile.name} />
+          </h1>
+          <p
+            className="hero-item mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 dark:text-slate-300"
+            style={{ animationDelay: "180ms" }}
           >
-            Get in touch
-          </Link>
+            High school senior in Houston building software and AI projects.
+          </p>
+          {/* Current role — concrete credibility, scannable above the fold */}
+          <p
+            className="hero-item mt-5 text-sm text-slate-500 dark:text-slate-400"
+            style={{ animationDelay: "210ms" }}
+          >
+            Software Engineer Intern{" "}
+            <span className="text-slate-700 dark:text-slate-300">
+              @ Child Poverty Action Lab
+            </span>
+          </p>
+          <div
+            className="hero-item mt-8 flex flex-wrap gap-4"
+            style={{ animationDelay: "270ms" }}
+          >
+            <Link
+              href="#projects"
+              className="rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-lg hover:shadow-accent/25 active:translate-y-0"
+            >
+              View my work
+            </Link>
+            <Link
+              href="#contact"
+              className="rounded-lg border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition-all duration-200 hover:-translate-y-0.5 hover:border-accent hover:text-accent hover:shadow-md active:translate-y-0 dark:border-slate-700 dark:text-slate-200"
+            >
+              Get in touch
+            </Link>
+          </div>
         </div>
+
+        {/* Portrait column — only when a real photo is configured */}
+        {hasPortrait && (
+          <div
+            className="hero-item order-1 mx-auto w-full max-w-[16rem] lg:order-2 lg:mx-0 lg:max-w-[20rem]"
+            style={{ animationDelay: "150ms" }}
+          >
+            <div className="relative">
+              {/* soft accent glow behind the frame */}
+              <div
+                aria-hidden
+                className="absolute -inset-4 -z-10 rounded-3xl bg-accent/20 blur-3xl"
+              />
+              <div className="overflow-hidden rounded-2xl border border-slate-200/70 shadow-xl ring-1 ring-black/5 dark:border-white/10 dark:ring-white/10">
+                <Image
+                  src={profile.image}
+                  alt={`Portrait of ${profile.name}`}
+                  width={577}
+                  height={581}
+                  priority
+                  sizes="(min-width: 1024px) 320px, 256px"
+                  className="h-auto w-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

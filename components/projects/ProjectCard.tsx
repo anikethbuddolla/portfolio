@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Project } from "@/lib/data";
 import { TypeBadge, StatusBadge } from "./Badge";
 
@@ -12,12 +13,32 @@ export default function ProjectCard({ project, active }: ProjectCardProps) {
     <Link
       href={`/projects/${project.slug}`}
       data-project-card
-      className={`group reveal-item card-hover flex flex-col rounded-xl border bg-white p-6 outline-none dark:bg-slate-900 ${
+      className={`group reveal-item card-hover flex flex-col overflow-hidden rounded-xl border bg-white outline-none dark:bg-slate-900 ${
         active
           ? "border-accent ring-2 ring-accent/40"
           : "border-slate-200 dark:border-slate-800"
       }`}
     >
+      {/* Thumbnail (or a branded placeholder when there's no image yet) */}
+      <div className="relative aspect-video w-full overflow-hidden border-b border-slate-200 dark:border-slate-800">
+        {project.thumbnail ? (
+          <Image
+            src={project.thumbnail}
+            alt={`${project.title} preview`}
+            fill
+            sizes="(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw"
+            className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
+          />
+        ) : (
+          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-accent/10 via-slate-100 to-slate-200 dark:via-slate-800 dark:to-slate-900">
+            <span className="font-mono text-xs uppercase tracking-widest text-slate-400 dark:text-slate-500">
+              {project.inProgress ? "In progress" : project.title}
+            </span>
+          </div>
+        )}
+      </div>
+
+      <div className="flex flex-1 flex-col p-6">
       <div className="mb-3 flex flex-wrap items-center gap-2">
         <TypeBadge type={project.type} />
         <StatusBadge project={project} />
@@ -59,6 +80,7 @@ export default function ProjectCard({ project, active }: ProjectCardProps) {
           <path d="m12 5 7 7-7 7" />
         </svg>
       </span>
+      </div>
     </Link>
   );
 }
