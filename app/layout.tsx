@@ -19,10 +19,10 @@ const mono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://anikethbuddolla.vercel.app"),
-  title: `${profile.name} — ${profile.title}`,
+  title: `${profile.name} · ${profile.title}`,
   description: profile.about,
   openGraph: {
-    title: `${profile.name} — ${profile.title}`,
+    title: `${profile.name} · ${profile.title}`,
     description: profile.about,
     type: "website",
   },

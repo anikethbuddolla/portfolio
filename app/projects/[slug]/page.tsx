@@ -20,7 +20,7 @@ export function generateMetadata({
   const project = getProject(params.slug);
   if (!project) return { title: "Project not found" };
   return {
-    title: `${project.title} — Case study`,
+    title: `${project.title} · Case study`,
     description: project.oneLiner,
   };
 }
@@ -125,10 +125,10 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               <figure className="mt-12">
                 <LiveDemoEmbed
                   url={project.liveUrl!}
-                  label={`${project.title} — live demo`}
+                  label={`${project.title} · live demo`}
                 />
                 <figcaption className="mt-3 text-center font-mono text-xs text-slate-500 dark:text-slate-400">
-                  Live, interactive — try it right here, or open it in a new tab.
+                  Live and interactive. Try it right here, or open it in a new tab.
                 </figcaption>
               </figure>
             ) : (
