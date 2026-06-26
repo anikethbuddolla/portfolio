@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 const links = [
-  { href: "/", id: "", label: "Home" },
+  { href: "/", id: "home", label: "Home" },
   { href: "/#about", id: "about", label: "About" },
   { href: "/#experience", id: "experience", label: "Experience" },
   { href: "/#projects", id: "projects", label: "Projects" },
@@ -15,7 +15,7 @@ const links = [
 
 export default function NavLinks() {
   const pathname = usePathname();
-  const [active, setActive] = useState("");
+  const [active, setActive] = useState("home");
   const [indicator, setIndicator] = useState({ left: 0, width: 0, opacity: 0 });
   const itemRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
 
@@ -24,8 +24,8 @@ export default function NavLinks() {
       setActive("__none__");
       return;
     }
-    setActive("");
-    const ids = ["about", "experience", "projects", "resume", "contact"];
+    setActive("home");
+    const ids = ["home", "about", "experience", "projects", "resume", "contact"];
     const els = ids
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);

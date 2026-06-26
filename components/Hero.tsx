@@ -5,7 +5,10 @@ import HeroTerminal from "./HeroTerminal";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-slate-200 dark:border-slate-800">
+    <section
+      id="home"
+      className="relative overflow-hidden border-b border-slate-200 dark:border-slate-800"
+    >
       {/* subtle background: soft aurora + fading dot-grid */}
       <div
         aria-hidden
