@@ -1,13 +1,9 @@
 import Link from "next/link";
-import Image from "next/image";
 import { profile } from "@/lib/data";
 import TypedName from "./TypedName";
+import HeroTerminal from "./HeroTerminal";
 
 export default function Hero() {
-  // Only render the two-column portrait layout once a real photo is set;
-  // otherwise fall back to a clean, full-width text hero.
-  const hasPortrait = Boolean(profile.image);
-
   return (
     <section className="relative overflow-hidden border-b border-slate-200 dark:border-slate-800">
       {/* subtle background: soft aurora + fading dot-grid */}
@@ -20,13 +16,9 @@ export default function Hero() {
         <div className="dot-grid absolute inset-0 text-slate-300/50 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)] dark:text-slate-700/40" />
       </div>
 
-      <div
-        className={`relative mx-auto grid max-w-5xl grid-cols-1 items-center gap-12 px-6 py-24 sm:py-32 ${
-          hasPortrait ? "lg:grid-cols-[1.4fr_0.9fr]" : ""
-        }`}
-      >
+      <div className="relative mx-auto grid max-w-5xl grid-cols-1 items-center gap-12 px-6 py-24 sm:py-32 lg:grid-cols-[1.4fr_0.9fr]">
         {/* Text column */}
-        <div className="order-2 lg:order-1">
+        <div>
           <h1
             className="hero-item max-w-3xl text-4xl font-bold leading-[1.1] tracking-tight sm:text-6xl"
             style={{ animationDelay: "0ms" }}
@@ -68,32 +60,15 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Portrait column — only when a real photo is configured */}
-        {hasPortrait && (
+        {/* Terminal card — anchors the right side */}
+        <div className="relative">
+          {/* soft accent glow behind the frame */}
           <div
-            className="hero-item order-1 mx-auto w-full max-w-[16rem] lg:order-2 lg:mx-0 lg:max-w-[20rem]"
-            style={{ animationDelay: "150ms" }}
-          >
-            <div className="relative">
-              {/* soft accent glow behind the frame */}
-              <div
-                aria-hidden
-                className="absolute -inset-4 -z-10 rounded-3xl bg-accent/20 blur-3xl"
-              />
-              <div className="overflow-hidden rounded-2xl border border-slate-200/70 shadow-xl ring-1 ring-black/5 dark:border-white/10 dark:ring-white/10">
-                <Image
-                  src={profile.image}
-                  alt={`Portrait of ${profile.name}`}
-                  width={577}
-                  height={581}
-                  priority
-                  sizes="(min-width: 1024px) 320px, 256px"
-                  className="h-auto w-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        )}
+            aria-hidden
+            className="absolute -inset-6 -z-10 rounded-3xl bg-accent/20 blur-3xl"
+          />
+          <HeroTerminal />
+        </div>
       </div>
     </section>
   );
