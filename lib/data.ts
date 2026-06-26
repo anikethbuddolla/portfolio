@@ -1,6 +1,9 @@
 export const profile = {
   name: "Aniketh Buddolla",
   title: "Software Intern",
+  // Short, bold ethos line shown as a pull-quote atop the About section.
+  tagline:
+    "I follow my curiosity — from AI to chemical engineering — and build things that matter along the way.",
   about:
     "Hi, my name is Aniketh Buddolla, and I am a senior at Westside High School in Houston, Texas. My interests include artificial intelligence, software engineering, and chemical engineering. I started coding at a young age and have since developed a wide variety of projects while expanding my technical skills. I'm passionate about exploring how technology and engineering can solve real-world problems, particularly in areas such as environmental innovation and sustainable energy.",
   email: "aniketh.buddolla@gmail.com",

@@ -3,16 +3,14 @@ import Section from "./Section";
 import { profile } from "@/lib/data";
 
 export default function About() {
-  // Two-column (portrait + bio) once a licensed photo is set; bio-only until then.
+  // Two-column (portrait + text) once a licensed photo is set; text-only until then.
   const hasPortrait = Boolean(profile.image);
 
   return (
     <Section id="about" title="About">
       <div
         className={
-          hasPortrait
-            ? "grid items-start gap-8 sm:grid-cols-[auto_1fr]"
-            : ""
+          hasPortrait ? "grid items-start gap-10 sm:grid-cols-[auto_1fr]" : ""
         }
       >
         {hasPortrait && (
@@ -36,8 +34,11 @@ export default function About() {
           </div>
         )}
 
-        <div className="reveal-item max-w-3xl rounded-xl border border-slate-200 bg-white p-6 card-hover dark:border-slate-800 dark:bg-slate-900 sm:p-8">
-          <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+        <div className="reveal-item max-w-3xl">
+          <blockquote className="border-l-2 border-accent pl-5 text-2xl font-semibold leading-snug tracking-tight text-slate-900 dark:text-white sm:pl-6 sm:text-3xl">
+            {profile.tagline}
+          </blockquote>
+          <p className="mt-7 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
             {profile.about}
           </p>
         </div>
