@@ -29,7 +29,7 @@ export default function Hero() {
             className="hero-item mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 dark:text-slate-300"
             style={{ animationDelay: "180ms" }}
           >
-            High school senior in Houston building software and AI projects.
+            I build software and AI that solve real-world problems.
           </p>
           {/* Current role — concrete credibility, scannable above the fold */}
           <p

@@ -1,7 +1,9 @@
-// Decorative terminal mockup that anchors the hero's right side. Static (the
-// blinking cursor is the only motion) and aria-hidden — the real info lives in
-// the hero text — so it ships zero JS and adds no screen-reader noise. Stays
-// dark in both themes, the way a real terminal does.
+import TerminalStatus from "./TerminalStatus";
+
+// Decorative terminal mockup that anchors the hero's right side. aria-hidden —
+// the name/role already live in the hero text, so this shows *different* info
+// (stack, interests, a cycling status) to avoid repeating the left column.
+// Stays dark in both themes, the way a real terminal does.
 export default function HeroTerminal() {
   return (
     <div
@@ -23,27 +25,21 @@ export default function HeroTerminal() {
       <div className="space-y-2.5 p-5 font-mono text-sm leading-relaxed">
         <p>
           <span className="text-emerald-400">$</span>{" "}
-          <span className="text-slate-200">whoami</span>
-        </p>
-        <p className="text-slate-400">
-          Aniketh — software intern{" "}
-          <span className="text-indigo-400">@ Child Poverty Action Lab</span>
-        </p>
-
-        <p className="pt-1">
-          <span className="text-emerald-400">$</span>{" "}
           <span className="text-slate-200">cat stack.txt</span>
         </p>
         <p className="text-cyan-400">TypeScript · React · Next.js · Python</p>
 
         <p className="pt-1">
           <span className="text-emerald-400">$</span>{" "}
+          <span className="text-slate-200">ls interests/</span>
+        </p>
+        <p className="text-indigo-400">ai · software · chem-eng</p>
+
+        <p className="pt-1">
+          <span className="text-emerald-400">$</span>{" "}
           <span className="text-slate-200">./status</span>
         </p>
-        <p className="text-slate-400">
-          building software &amp; AI to solve real problems
-          <span className="term-cursor ml-1 inline-block h-4 w-2 translate-y-0.5 bg-slate-300" />
-        </p>
+        <TerminalStatus />
       </div>
     </div>
   );
