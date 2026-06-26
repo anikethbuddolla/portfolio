@@ -46,45 +46,28 @@ select {
 
 /* ---------- Motion ---------- */
 
-/* Scroll reveal — pure CSS, no JS. Content is visible by default so
-   browsers without scroll-driven timelines (Safari, Firefox) degrade
-   gracefully; the fade-in only applies where view() is supported.
-   .reveal animates a whole block; .reveal-item is applied per card so
-   each one cascades in as it individually crosses into the viewport. */
-@keyframes revealIn {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+/* Scroll reveal — each section fades + rises into view the first time it
+   enters the viewport. Driven by IntersectionObserver (see Reveal.tsx) so it
+   works in every browser. The hidden start state is gated behind the `js`
+   class on <html> (set before paint), so without JavaScript — or before
+   hydration — the content stays fully visible. */
+.js .reveal-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
-/* Per-item reveal slides up WITHOUT fading opacity. A scroll-driven opacity
-   fade leaves cards parked at partial opacity at a given scroll position,
-   which axe reads as low text contrast — so cards only translate, never fade,
-   keeping text at full opacity (and full contrast) the whole time. */
-@keyframes revealRise {
-  from {
-    transform: translateY(18px);
-  }
-  to {
-    transform: none;
-  }
+.js .reveal-up.is-visible {
+  opacity: 1;
+  transform: none;
 }
-@media (prefers-reduced-motion: no-preference) {
-  @supports (animation-timeline: view()) {
-    .reveal {
-      animation: revealIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-      animation-timeline: view();
-      animation-range: entry 4% cover 24%;
-    }
-    .reveal-item {
-      animation: revealRise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-      animation-timeline: view();
-      animation-range: entry 4% cover 24%;
-    }
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }
 

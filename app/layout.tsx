@@ -42,7 +42,7 @@ export const viewport: Viewport = {
 // Runs before paint to apply the saved/system theme and avoid a flash.
 // Default to the dark "holographic glass" theme; only go light if the user
 // has explicitly chosen it. Runs before paint to avoid a flash.
-const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(t!=='light'){document.documentElement.classList.add('dark');}}catch(e){document.documentElement.classList.add('dark');}})();`;
+const themeScript = `(function(){document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t!=='light'){document.documentElement.classList.add('dark');}}catch(e){document.documentElement.classList.add('dark');}})();`;
 
 export default function RootLayout({
   children,
