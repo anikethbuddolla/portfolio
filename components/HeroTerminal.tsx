@@ -33,7 +33,9 @@ export default function HeroTerminal() {
           <span className="text-emerald-400">$</span>{" "}
           <span className="text-slate-200">ls interests/</span>
         </p>
-        <p className="text-indigo-400">ai · software · chem-eng</p>
+        <p className="text-indigo-400">
+          ai · software · chem-eng · sustainability
+        </p>
 
         <p className="pt-1">
           <span className="text-emerald-400">$</span>{" "}
