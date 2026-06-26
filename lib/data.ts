@@ -14,16 +14,6 @@ export const profile = {
   image: "",
 };
 
-// Personal interests shown in the "Beyond the Code" section. Edit freely.
-export const interests: { emoji: string; label: string }[] = [
-  { emoji: "🎻", label: "Violin" },
-  { emoji: "🎵", label: "Music" },
-  { emoji: "🎮", label: "Gaming" },
-  { emoji: "🏀", label: "Basketball" },
-  { emoji: "🏃", label: "Running" },
-  { emoji: "🤖", label: "Robotics" },
-];
-
 export type ProjectType = "personal" | "work";
 
 export type Screenshot = {
@@ -73,7 +63,7 @@ export const projects: Project[] = [
     context:
       "Built as a hands-on project in the Code2College internship at Child Poverty Action Lab (CPAL): learn a professional design system (Adobe Spectrum) by using it to tell a personal story.",
     approach: [
-      "Composed the whole page from Adobe Spectrum components (cards, badges, progress bars, dividers) instead of custom CSS, to learn the system's constraints.",
+      "Composed the whole page from Adobe Spectrum components — cards, badges, progress bars, dividers — instead of custom CSS, to learn the system's constraints.",
       "Added vanilla-JavaScript interactivity with no framework: a typing animation, a light/dark theme toggle, and an interactive music player.",
       "Used IntersectionObserver for scroll-triggered animations and wrote semantic, accessible HTML (ARIA roles, proper heading hierarchy).",
     ],
@@ -83,7 +73,7 @@ export const projects: Project[] = [
     screenshots: [
       {
         src: "/projects/design-system-lab.png",
-        alt: "Design System Lab: the hero, composed entirely from Adobe Spectrum components",
+        alt: "Design System Lab — the hero, composed entirely from Adobe Spectrum components",
       },
     ],
     thumbnail: "/projects/design-system-lab.png",
@@ -98,7 +88,7 @@ export const projects: Project[] = [
     oneLiner:
       "A terminal-based metronome and practice logger for musicians, built for violin practice.",
     context:
-      "I wanted a focused practice tool that runs right in the terminal: a metronome, intonation drones, a session timer, and a streak log to stay accountable.",
+      "I wanted a focused practice tool that runs right in the terminal — a metronome, intonation drones, a session timer, and a streak log to stay accountable.",
     approach: [
       "Built the terminal UI with React 19 and OpenTUI on the Bun runtime, in TypeScript.",
       "Wrote a synthesized audio engine that generates WAV click tracks and seamless intonation drones, with a graceful terminal-bell fallback.",
@@ -110,7 +100,7 @@ export const projects: Project[] = [
     screenshots: [
       {
         src: "/projects/practice-studio.png",
-        alt: "Practice Studio in the terminal: metronome playing at 100 BPM with a drone on A3, recording a session",
+        alt: "Practice Studio in the terminal — metronome playing at 100 BPM with a drone on A3, recording a session",
       },
     ],
     thumbnail: "/projects/practice-studio.png",
@@ -224,7 +214,7 @@ export type EducationItem = {
 
 export const education: EducationItem[] = [
   {
-    school: "Westside High School · Houston, TX",
+    school: "Westside High School — Houston, TX",
     credential: "High School Diploma",
     period: "Graduation 2027",
     details: "GPA 4.83 / 3.9 (weighted / unweighted) · Class Rank 5 of 611",
@@ -242,41 +232,41 @@ export const leadership: LeadershipItem[] = [
   {
     org: "Student Council",
     role: "President (prev. Freshman VP, Club Liaison, Historian)",
-    period: "2023 to Present",
+    period: "2023 — Present",
     detail:
       "Led student initiatives and events; helped reopen the school library serving 3,000+ students; led the Homecoming Committee; led the International Festival Committee; started several clubs; created a digital archive of Student Council activities.",
   },
   {
     org: "FRC Robotics",
     role: "Member",
-    period: "2023 to Present",
+    period: "2023 — Present",
     detail:
       "Programmed robot subsystems in Java for autonomous and driver functionality; designed robot components using Onshape CAD software; assembled robot components using power tools; worked on performance improvements throughout the season; 2× State Finalist.",
   },
   {
     org: "Orchestra",
     role: "Varsity Violinist (Principal Second Violin)",
-    period: "2017 to Present",
+    period: "2017 — Present",
     detail:
       "Two-time UIL Sweepstakes award recipient; competed in UIL Solo & Ensemble; taught violin to 200+ children across underserved rural villages in India.",
   },
   {
     org: "Track & Field",
     role: "Varsity",
-    period: "2024 to Present",
+    period: "2024 — Present",
     detail: "Competed at the UIL District and Area levels.",
   },
   {
-    org: "National Wildlife Federation · Earth Tomorrow Houston",
+    org: "National Wildlife Federation — Earth Tomorrow Houston",
     role: "Member",
-    period: "2023 to Present",
+    period: "2023 — Present",
     detail:
       "Volunteered 40+ hours on conservation projects at Big Thicket National Preserve and Huntsville State Park (TX), including trash cleanups, tree planting, and habitat stewardship.",
   },
   {
     org: "KidsVikas Houston ALT",
     role: "Volunteer",
-    period: "2024 to Present",
+    period: "2024 — Present",
     detail:
       "Volunteered 60+ hours packing meals for children in need, assembling PB&J sandwiches and snack bags distributed to local food banks.",
   },
@@ -288,12 +278,12 @@ export type Award = {
 };
 
 export const awards: Award[] = [
-  { name: "Python Level 1 Certified · CodeHS", year: "2024" },
+  { name: "Python Level 1 Certified — CodeHS", year: "2024" },
   { name: "Aerial Drone Competition Flight Excellence Award", year: "2024" },
   { name: "National Honor Society (NHS)", year: "2025" },
   { name: "UIL Orchestra Sweepstakes", year: "2025" },
   { name: "FIRST Robotics Competition State Finalist", year: "2025" },
-  { name: "IT Specialist · Java Certification", year: "2026" },
+  { name: "IT Specialist — Java Certification", year: "2026" },
   { name: "Student Council President", year: "2026" },
   { name: "FIRST Robotics Competition State Finalist", year: "2026" },
 ];

@@ -27,12 +27,6 @@ const navCommands: Command[] = [
   },
   { id: "projects", label: "Projects", hint: "section", run: go("/#projects") },
   { id: "resume", label: "Resume", hint: "section", run: go("/#resume") },
-  {
-    id: "interests",
-    label: "Beyond the Code",
-    hint: "section",
-    run: go("/#interests"),
-  },
   { id: "contact", label: "Contact", hint: "section", run: go("/#contact") },
 ];
 

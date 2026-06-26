@@ -83,7 +83,7 @@ export default function ContactForm() {
         </span>
         <p className="text-lg font-semibold">Message sent!</p>
         <p className="text-sm text-slate-600 dark:text-slate-300">
-          Thanks for reaching out. I&apos;ll get back to you soon.
+          Thanks for reaching out — I&apos;ll get back to you soon.
         </p>
         <button
           type="button"

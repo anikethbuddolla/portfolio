@@ -4,7 +4,6 @@ import About from "@/components/About";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Resume from "@/components/Resume";
-import BeyondCode from "@/components/BeyondCode";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -18,7 +17,6 @@ export default function Home() {
         <Experience />
         <Projects />
         <Resume />
-        <BeyondCode />
         <Contact />
       </main>
       <Footer />

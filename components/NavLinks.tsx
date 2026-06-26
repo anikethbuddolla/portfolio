@@ -25,15 +25,7 @@ export default function NavLinks() {
       return;
     }
     setActive("home");
-    const ids = [
-      "home",
-      "about",
-      "experience",
-      "projects",
-      "resume",
-      "interests",
-      "contact",
-    ];
+    const ids = ["home", "about", "experience", "projects", "resume", "contact"];
     const els = ids
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);
