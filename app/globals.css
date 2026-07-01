@@ -71,20 +71,21 @@ select {
   }
 }
 
-/* Hero entrance (staggered via inline animation-delay) */
+/* Hero entrance (staggered via inline animation-delay).
+   Rise-only — no opacity fade. Keeping the text fully opaque from the first
+   frame lets Chrome count the hero <p> as the LCP element; an opacity:0 start
+   disqualifies it and pushes LCP later. `both` fill applies the pre-delay
+   translate so the stagger still reads correctly. */
 @keyframes heroIn {
   from {
-    opacity: 0;
     transform: translateY(14px);
   }
   to {
-    opacity: 1;
     transform: none;
   }
 }
 .hero-item {
-  opacity: 0;
-  animation: heroIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: heroIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 /* Slowly drifting aurora blobs behind the hero — ambient, GPU-only motion */

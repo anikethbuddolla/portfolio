@@ -4,8 +4,7 @@ import "./globals.css";
 import { profile } from "@/lib/data";
 import CommandPalette from "@/components/CommandPalette";
 import ScrollProgress from "@/components/ScrollProgress";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import DeferredAnalytics from "@/components/DeferredAnalytics";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 // Mono isn't used above the fold, so don't preload it — that frees
@@ -58,8 +57,7 @@ export default function RootLayout({
         <ScrollProgress />
         {children}
         <CommandPalette />
-        <Analytics />
-        <SpeedInsights />
+        <DeferredAnalytics />
       </body>
     </html>
   );

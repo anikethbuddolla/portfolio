@@ -1,11 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useState } from "react";
-
-// useLayoutEffect on the client (so we can rewind to zero *before* the browser
-// paints, avoiding a flash of the full name), but a no-op on the server.
-const useIsoLayoutEffect =
-  typeof window !== "undefined" ? useLayoutEffect : useEffect;
+import { useEffect, useState } from "react";
 
 const SPEED_MS = 70; // per character
 
@@ -16,22 +11,39 @@ export default function TypedName({ text }: { text: string }) {
   const [count, setCount] = useState(text.length);
   const [done, setDone] = useState(true);
 
-  useIsoLayoutEffect(() => {
+  useEffect(() => {
     // Respect reduced motion: leave the full name in place, no typing.
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    setCount(0);
-    setDone(false);
-    let i = 0;
-    const id = window.setInterval(() => {
-      i += 1;
-      setCount(i);
-      if (i >= text.length) {
-        window.clearInterval(id);
-        setDone(true);
-      }
-    }, SPEED_MS);
-    return () => window.clearInterval(id);
+    let intervalId: number | undefined;
+    function start() {
+      setCount(0);
+      setDone(false);
+      let i = 0;
+      intervalId = window.setInterval(() => {
+        i += 1;
+        setCount(i);
+        if (i >= text.length) {
+          window.clearInterval(intervalId);
+          setDone(true);
+        }
+      }, SPEED_MS);
+    }
+
+    // Defer the typing loop to idle so it stays out of the hydration /
+    // Total-Blocking-Time window. The full name is already painted (it's the
+    // LCP text); the animation just replays once the main thread is free.
+    const ric =
+      typeof window.requestIdleCallback === "function"
+        ? window.requestIdleCallback
+        : null;
+    const handle = ric ? ric(start) : window.setTimeout(start, 200);
+
+    return () => {
+      if (ric) window.cancelIdleCallback(handle);
+      else clearTimeout(handle);
+      if (intervalId) window.clearInterval(intervalId);
+    };
   }, [text]);
 
   return (
